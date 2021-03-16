@@ -24,7 +24,7 @@ public class Main {
         System.out.println("Please select an option :");
         System.out.println("\t 1. Add animal");
         System.out.println("\t 2. Show list of animals");
-        System.out.println("\t 3. Make sound: ");
+        System.out.println("\t 3. Make sound ");
         int choice = scanner.nextInt();
         switch (choice) {
             case 1:
@@ -45,10 +45,18 @@ public class Main {
     }
 
     private static void makeSound() {
+        System.out.println("Which animal should make sound");
+        String animalType = scanner.next();
+
         for (Animal animal: animals) {
             Audible animalSound = animal;
 
-                System.out.println("Sound:" + animalSound.makeSound());
+            if (animal.getAnimalType().equalsIgnoreCase(animalType)){
+                System.out.println(animal.toString() + " " + animalSound.makeSound());
+                System.out.println("******************************************");
+            }
+
+
         }
 
     }
