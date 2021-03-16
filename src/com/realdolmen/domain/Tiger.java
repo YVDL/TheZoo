@@ -6,4 +6,9 @@ public class Tiger extends Animal {
         super(name, age);
 
     }
+
+    public Tiger() {
+        super();
+
+    }
 }

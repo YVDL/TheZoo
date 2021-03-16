@@ -24,10 +24,14 @@ public class Main {
     private static void showInitialOptions() {
         System.out.println("Please select an option :");
         System.out.println("\t 1. Add animal");
+        System.out.println("\t 2. Show list of animals");
         int choice = scanner.nextInt();
         switch (choice){
             case 1:
                 addAnAnimal();
+                break;
+            case 2:
+                showAnimals();
                 break;
             default:
                 System.out.println("Type in a valid input!");
@@ -37,6 +41,13 @@ public class Main {
 
     }
 
+    private static void showAnimals() {
+        System.out.println("This is the animal list");
+        for (Animal animal : animals){
+            System.out.println("Name: "+animal.getName()+" Age: "+animal.getAge() + " Animal type: " + animal.getClass().getSimpleName());
+        }
+    }
+
     private static void addAnAnimal() {
         System.out.println("Please select an option: ");
         System.out.println("\t 1. Add a lion");
@@ -44,13 +55,11 @@ public class Main {
         int choice = scanner.nextInt();
         switch (choice){
             case 1:
-                System.out.println("Please give a name and an age for the lion");
-                Lion lion = new Lion(scanner.next(), scanner.nextInt());
+                Animal lion = askForAgeName(new Lion());
                 animals.add(lion);
                 break;
             case 2:
-                System.out.println("Please give a name and an age for the tiger");
-                Tiger tiger = new Tiger(scanner.next(), scanner.nextInt());
+                Animal tiger = askForAgeName(new Tiger());
                 animals.add(tiger);
                 break;
             default:
@@ -59,5 +68,22 @@ public class Main {
                 break;
         }
 
+    }
+
+    private static Animal askForAgeName(Animal animal) {
+        System.out.println("Please give a name and an age for the animal");
+        System.out.print("Name ");
+        String name = scanner.next();
+        System.out.print("Age ");
+        int age = scanner.nextInt();
+        if (animal instanceof Lion){
+            return new Lion(name,age);
+
+
+        } else if (animal instanceof Tiger){
+            return new Tiger(name,age);
+        }
+
+        return null;
     }
 }

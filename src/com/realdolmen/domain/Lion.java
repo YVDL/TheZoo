@@ -6,4 +6,7 @@ public class Lion extends Animal {
         super(name, age);
     }
 
+    public Lion() {
+        super();
+    }
 }
