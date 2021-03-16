@@ -1,6 +1,7 @@
 package com.realdolmen;
 
 import com.realdolmen.domain.Animal;
+import com.realdolmen.domain.Ape;
 import com.realdolmen.domain.Lion;
 import com.realdolmen.domain.Tiger;
 
@@ -10,12 +11,12 @@ import java.util.Scanner;
 
 public class Main {
     private static Scanner scanner = new Scanner(System.in);
-    private static ArrayList<Animal>animals = new ArrayList<Animal>();
+    private static ArrayList<Animal> animals = new ArrayList<Animal>();
 
 
     public static void main(String[] args) {
         System.out.println("Welcome to my humble world of programming");
-        while (true){
+        while (true) {
             showInitialOptions();
         }
 
@@ -26,7 +27,7 @@ public class Main {
         System.out.println("\t 1. Add animal");
         System.out.println("\t 2. Show list of animals");
         int choice = scanner.nextInt();
-        switch (choice){
+        switch (choice) {
             case 1:
                 addAnAnimal();
                 break;
@@ -43,8 +44,8 @@ public class Main {
 
     private static void showAnimals() {
         System.out.println("This is the animal list");
-        for (Animal animal : animals){
-            System.out.println("Name: "+animal.getName()+" Age: "+animal.getAge() + " Animal type: " + animal.getClass().getSimpleName());
+        for (Animal animal : animals) {
+            System.out.println("Name: " + animal.getName() + " Age: " + animal.getAge() + " Animal type: " + animal.getClass().getSimpleName());
         }
     }
 
@@ -52,8 +53,9 @@ public class Main {
         System.out.println("Please select an option: ");
         System.out.println("\t 1. Add a lion");
         System.out.println("\t 2. Add a tiger");
+        System.out.println("\t 3. Add an ape");
         int choice = scanner.nextInt();
-        switch (choice){
+        switch (choice) {
             case 1:
                 Animal lion = askForAgeName(new Lion());
                 animals.add(lion);
@@ -61,6 +63,10 @@ public class Main {
             case 2:
                 Animal tiger = askForAgeName(new Tiger());
                 animals.add(tiger);
+                break;
+            case 3:
+                Animal ape = askForAgeName(new Ape());
+                animals.add(ape);
                 break;
             default:
                 System.out.println("Type in a valid input");
@@ -76,14 +82,9 @@ public class Main {
         String name = scanner.next();
         System.out.print("Age ");
         int age = scanner.nextInt();
-        if (animal instanceof Lion){
-            return new Lion(name,age);
+        animal.setAge(age);
+        animal.setName(name);
 
-
-        } else if (animal instanceof Tiger){
-            return new Tiger(name,age);
-        }
-
-        return null;
+        return animal;
     }
 }
