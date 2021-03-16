@@ -1,6 +1,6 @@
 package com.realdolmen.domain;
 
-public abstract class Animal {
+public abstract class Animal implements Audible{
     private String name;
     private int age;
 

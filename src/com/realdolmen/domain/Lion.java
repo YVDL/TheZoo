@@ -9,4 +9,9 @@ public class Lion extends Animal {
     public Lion() {
         super();
     }
+
+    @Override
+    public String makeSound() {
+        return "Raaawrree";
+    }
 }

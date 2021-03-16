@@ -8,5 +8,9 @@ public class Ape extends Animal{
     public Ape() {
         super();
     }
+
+    public String makeSound(){
+        return "Oeoeoeoeoe aaaa";
+    }
 }
 

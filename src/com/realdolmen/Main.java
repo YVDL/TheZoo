@@ -1,9 +1,6 @@
 package com.realdolmen;
 
-import com.realdolmen.domain.Animal;
-import com.realdolmen.domain.Ape;
-import com.realdolmen.domain.Lion;
-import com.realdolmen.domain.Tiger;
+import com.realdolmen.domain.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -18,6 +15,7 @@ public class Main {
         System.out.println("Welcome to my humble world of programming");
         while (true) {
             showInitialOptions();
+
         }
 
     }
@@ -26,6 +24,7 @@ public class Main {
         System.out.println("Please select an option :");
         System.out.println("\t 1. Add animal");
         System.out.println("\t 2. Show list of animals");
+        System.out.println("\t 3. Make sound: ");
         int choice = scanner.nextInt();
         switch (choice) {
             case 1:
@@ -34,10 +33,22 @@ public class Main {
             case 2:
                 showAnimals();
                 break;
+            case 3:
+                makeSound();
+                break;
             default:
                 System.out.println("Type in a valid input!");
                 showInitialOptions();
                 break;
+        }
+
+    }
+
+    private static void makeSound() {
+        for (Animal animal: animals) {
+            Audible animalSound = animal;
+
+                System.out.println("Sound:" + animalSound.makeSound());
         }
 
     }

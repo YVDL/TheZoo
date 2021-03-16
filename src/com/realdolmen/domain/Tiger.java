@@ -11,4 +11,9 @@ public class Tiger extends Animal {
         super();
 
     }
+
+    @Override
+    public String makeSound() {
+        return "Raawr";
+    }
 }
