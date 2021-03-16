@@ -28,6 +28,7 @@ public class Main {
         System.out.println("\t 2. Show list of animals");
         System.out.println("\t 3. Make sound ");
         System.out.println("\t 4. Remove animal");
+        System.out.println("\t 5. add the birth date");
         int choice = scanner.nextInt();
         switch (choice) {
             case 1:
@@ -41,6 +42,9 @@ public class Main {
                 break;
             case 4:
                 animalService.removeAnimal();
+                break;
+            case 5:
+                animalService.addBirthDate();
                 break;
 
             default:

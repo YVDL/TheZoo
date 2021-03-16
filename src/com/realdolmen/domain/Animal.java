@@ -1,12 +1,20 @@
 package com.realdolmen.domain;
 
+import java.time.LocalDate;
+
 public abstract class Animal implements Audible{
     private String name;
     private int age;
     private String animalType;
+    private LocalDate birthdate;
 
+    public LocalDate getBirthdate() {
+        return birthdate;
+    }
 
-
+    public void setBirthdate(LocalDate birthdate) {
+        this.birthdate = birthdate;
+    }
 
     public void setAnimalType(String animalType) {
         this.animalType = animalType;
