@@ -24,10 +24,14 @@ public class Main {
     private static void showInitialOptions() {
         System.out.println("Please select an option :");
         System.out.println("\t 1. Add animal");
+        System.out.println("\t 2. Show list of animals");
         int choice = scanner.nextInt();
         switch (choice){
             case 1:
                 addAnAnimal();
+                break;
+            case 2:
+                showAnimals();
                 break;
             default:
                 System.out.println("Type in a valid input!");
@@ -35,6 +39,13 @@ public class Main {
                 break;
         }
 
+    }
+
+    private static void showAnimals() {
+        System.out.println("This is the animal list");
+        for (Animal animal : animals){
+            System.out.println("Name: "+animal.getName()+" Age: "+animal.getAge());
+        }
     }
 
     private static void addAnAnimal() {
@@ -45,7 +56,11 @@ public class Main {
         switch (choice){
             case 1:
                 System.out.println("Please give a name and an age for the lion");
-                Lion lion = new Lion(scanner.next(), scanner.nextInt());
+                System.out.print("Name ");
+                String name = scanner.next();
+                System.out.print("Age ");
+                int age = scanner.nextInt();
+                Lion lion = new Lion(name, age);
                 animals.add(lion);
                 break;
             case 2:
