@@ -3,6 +3,8 @@ package com.realdolmen.services;
 import com.realdolmen.domain.*;
 import com.realdolmen.repositories.AnimalRepository;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AnimalService {
@@ -90,4 +92,16 @@ public class AnimalService {
         return animal;
     }
 
+    public void addBirthDate() {
+        System.out.println("for which animal you want to add a birthdate");
+        showAnimals();
+        int animalNumber = scanner.nextInt();
+        System.out.printf("please provide the birth date");
+        String birthdate = scanner.next();
+        ArrayList<Animal> animals = animalRepository.getAnimals();
+        Animal animal = animals.get(animalNumber);
+        animal.setBirthdate(LocalDate.parse(birthdate));
+        animals.set(animalNumber, animal);
+
+    }
 }
