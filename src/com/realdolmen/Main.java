@@ -25,6 +25,7 @@ public class Main {
         System.out.println("\t 1. Add animal");
         System.out.println("\t 2. Show list of animals");
         System.out.println("\t 3. Make sound ");
+        System.out.println("\t 4. Remove animal");
         int choice = scanner.nextInt();
         switch (choice) {
             case 1:
@@ -36,11 +37,23 @@ public class Main {
             case 3:
                 makeSound();
                 break;
+            case 4:
+                removeAnimal();
+                break;
+
             default:
                 System.out.println("Type in a valid input!");
                 showInitialOptions();
                 break;
         }
+
+    }
+
+    private static void removeAnimal() {
+        System.out.println("Which animal do you want to remove? ");
+        showAnimals();
+        int animalNumber = scanner.nextInt();
+        animals.remove(animalNumber);
 
     }
 
@@ -63,8 +76,8 @@ public class Main {
 
     private static void showAnimals() {
         System.out.println("This is the animal list");
-        for (Animal animal : animals) {
-            System.out.println("Name: " + animal.getName() + " Age: " + animal.getAge() + " Animal type: " + animal.getClass().getSimpleName());
+        for (int i = 0; i < animals.size() ; i++) {
+            System.out.println(" Animal number: "+ i + " " +animals.get(i).toString());
         }
     }
 
