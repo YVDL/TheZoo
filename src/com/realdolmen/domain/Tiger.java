@@ -1,19 +1,9 @@
 package com.realdolmen.domain;
 
-public class Tiger {
-    String name;
-    int age;
+public class Tiger extends Animal {
 
     public Tiger(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
+        super(name, age);
 
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
     }
 }
