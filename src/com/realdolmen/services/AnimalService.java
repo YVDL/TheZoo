@@ -96,9 +96,16 @@ public class AnimalService {
         System.out.println("for which animal you want to add a birthdate");
         showAnimals();
         int animalNumber = scanner.nextInt();
+        ArrayList<Animal> animals = animalRepository.getAnimals();
+        if(animalNumber >= animals.size() ){
+            System.out.println("Choose a correct number!");
+            addBirthDate();
+
+        return;
+        }
         System.out.printf("please provide the birth date");
         String birthdate = scanner.next();
-        ArrayList<Animal> animals = animalRepository.getAnimals();
+
         Animal animal = animals.get(animalNumber);
         animal.setBirthdate(LocalDate.parse(birthdate));
         animals.set(animalNumber, animal);

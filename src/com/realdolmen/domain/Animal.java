@@ -1,6 +1,7 @@
 package com.realdolmen.domain;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public abstract class Animal implements Audible{
     private String name;
@@ -33,9 +34,12 @@ public abstract class Animal implements Audible{
     }
 
     public int getAge() {
-        return age;
+        if (birthdate != null) {
+            return (int) ChronoUnit.YEARS.between(birthdate, LocalDate.now());
+        }else {
+            return 0;
+        }
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -46,9 +50,9 @@ public abstract class Animal implements Audible{
 
     @Override
     public String toString() {
-        return "Animal " +
-                "name:'" + name + '\'' +
-                ", age:" + age +
+        return "Animal " + "Birthdate: " + birthdate +
+                " name: '" + name + '\'' +
+                ", age: " + getAge() +
                 ", animalType:'" + animalType + '\'';
     }
 }
