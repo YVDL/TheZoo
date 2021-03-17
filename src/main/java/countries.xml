@@ -1,0 +1,34 @@
+<Countries>
+    <Country>
+        <Description>Belgium is a <GovType>constitutional kingdom</GovType> bounded by the North Sea.
+        </Description>
+        <Capital>
+            <Name>Brussels</Name>
+        </Capital>
+        <City postcode="2000">
+            <Name>Antwerp</Name>
+        </City>
+        <City>
+            <Name>Charleroi</Name>
+        </City>
+        <Population/>
+        <Name id="1">Belgium</Name>
+    </Country>
+
+    <Country>
+        <Description>Belgium is a <GovType>constitutional kingdom</GovType> bounded by the North Sea.
+        </Description>
+        <Capital>
+            <Name>Brussels</Name>
+        </Capital>
+        <City postcode="2000">
+            <Name>Antwerp</Name>
+        </City>
+        <City>
+            <Name>Charleroi</Name>
+        </City>
+        <Population/>
+        <Name id="1">Belgium</Name>
+    </Country>
+
+</Countries>

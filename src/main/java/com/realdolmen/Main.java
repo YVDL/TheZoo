@@ -2,8 +2,18 @@ package com.realdolmen;
 
 import com.realdolmen.domain.*;
 import com.realdolmen.services.AnimalService;
+import org.alcibiade.asciiart.coord.TextBoxSize;
+import org.alcibiade.asciiart.raster.CharacterRaster;
+import org.alcibiade.asciiart.raster.ExtensibleCharacterRaster;
+import org.alcibiade.asciiart.raster.RasterContext;
+import org.alcibiade.asciiart.widget.ChartWidget;
+import org.alcibiade.asciiart.widget.TableWidget;
+import org.alcibiade.asciiart.widget.model.TableModel;
+import org.alcibiade.asciiart.widget.model.TableModelCollectionAdapter;
 
+import java.awt.image.Raster;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -13,12 +23,24 @@ public class Main {
 
 
     public static void main(String[] args) {
-        System.out.println("Welcome to my humble world of programming");
-        while (true) {
-            showInitialOptions();
+//        System.out.println("Welcome to my humble world of programming");
+//        while (true) {
+//            showInitialOptions();
+//
+//        }
 
-        }
+        List<String> items = new ArrayList<String>();
+        items.add("Orange");
+        items.add("Apple");
+        items.add("Lemon");
 
+        TableModel tableModel = new TableModelCollectionAdapter(items, "Fruit");
+        TableWidget tableWidget = new TableWidget(tableModel);
+
+        CharacterRaster raster = new ExtensibleCharacterRaster(' ');
+        tableWidget.render(new RasterContext(raster));
+
+        System.out.println(raster);
     }
 
     private static void showInitialOptions() {
