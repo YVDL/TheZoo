@@ -1,0 +1,19 @@
+<!ELEMENT families (family)*>
+<!ELEMENT family (name|address|members|pets)*>
+<!ELEMENT name (#PCDATA)>
+<!ATTLIST name
+        species CDATA #IMPLIED>
+<!ELEMENT address (streetname|housenumber|postalcode|city)*>
+<!ELEMENT streetname (#PCDATA)>
+<!ELEMENT housenumber (#PCDATA)>
+<!ELEMENT postalcode (#PCDATA)>
+<!ELEMENT city (#PCDATA)>
+<!ELEMENT members (member)*>
+<!ELEMENT member (firstname|lastname|gender)*>
+<!ATTLIST member
+        gender CDATA #REQUIRED>
+<!ELEMENT firstname (#PCDATA)>
+<!ELEMENT lastname (#PCDATA)>
+<!ELEMENT gender (#PCDATA)>
+<!ELEMENT pets (pet)*>
+<!ELEMENT pet (name)*>

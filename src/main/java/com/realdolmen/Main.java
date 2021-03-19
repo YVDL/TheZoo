@@ -1,21 +1,17 @@
 package com.realdolmen;
 
-import com.realdolmen.domain.*;
 import com.realdolmen.services.AnimalService;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class Main {
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
-
-    public static void main(String[] args) {
+    public static void main(String[] args){
         System.out.println("Welcome to my humble world of programming");
         while (true) {
             showInitialOptions();
-
         }
 
     }
