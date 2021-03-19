@@ -1,0 +1,13 @@
+
+        <!ELEMENT family (myfamilyMembers|marriedFamilyMembers)*>
+        <!ELEMENT myfamilyMembers (grandParents|parents|parentsSiblings|siblings|wife)*>
+        <!ELEMENT grandParents (member)*>
+        <!ELEMENT member (#PCDATA)>
+        <!ATTLIST member
+                name CDATA #REQUIRED>
+        <!ELEMENT parents (member)*>
+        <!ELEMENT parentsSiblings (member)*>
+        <!ELEMENT siblings (member)*>
+        <!ELEMENT wife (member)*>
+        <!ELEMENT marriedFamilyMembers (familyOfWife)*>
+        <!ELEMENT familyOfWife (#PCDATA)>

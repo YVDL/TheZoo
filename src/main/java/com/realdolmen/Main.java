@@ -1,5 +1,7 @@
 package com.realdolmen;
 
+import com.realdolmen.domain.Animal;
+import com.realdolmen.domain.AnimalType;
 import com.realdolmen.services.AnimalService;
 
 import java.util.Scanner;
@@ -7,7 +9,6 @@ import java.util.Scanner;
 
 public class Main {
     private static final Scanner scanner = new Scanner(System.in);
-
 
     public static void main(String[] args){
         System.out.println("Welcome to my humble world of programming");
@@ -28,15 +29,25 @@ public class Main {
         int choice = scanner.nextInt();
         switch (choice) {
             case 1:
-                animalService.addAnAnimal();
+                System.out.println("Please select an animal to add: ");
+                for (AnimalType animalType : AnimalType.values()) {
+                    System.out.println("\t" + animalType.getIdentity() + " " + animalType.getDisplayName());
+                }
+                int animalNumber = scanner.nextInt();
+
+                Animal animal = animalService.createAnimal(AnimalType.values()[animalNumber -1]);
+                animalService.addAnAnimal(animal);
                 break;
             case 2:
+                System.out.println("This is the animal list");
                 animalService.showAnimals();
                 break;
             case 3:
+                System.out.println("Which animal should make sound");
                 animalService.makeSound();
                 break;
             case 4:
+                System.out.println("Which animal do you want to remove? ");
                 animalService.removeAnimal();
                 break;
             case 5:
