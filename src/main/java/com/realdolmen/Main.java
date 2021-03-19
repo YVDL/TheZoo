@@ -1,5 +1,7 @@
 package com.realdolmen;
 
+import com.realdolmen.domain.Animal;
+import com.realdolmen.domain.AnimalType;
 import com.realdolmen.services.AnimalService;
 
 import java.util.Scanner;
