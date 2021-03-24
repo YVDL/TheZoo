@@ -1,9 +1,0 @@
-
-‹
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ŸéÙµùÿÿÿÿ
-‡
-java:S1319"rThe type of the "animals" object should be an interface such as "List" rather than the implementation "ArrayList".(˜Ÿ‚8
-t
-java:S2293	"YReplace the type specification in this constructor call with the diamond operator ("<>").(›‹ëïüÿÿÿÿ
-K
-java:S2696"6Make the enclosing method "static" or remove this set.(™ôµ
