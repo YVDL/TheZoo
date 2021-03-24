@@ -1,63 +1,37 @@
 package com.realdolmen;
 
-import com.realdolmen.domain.Animal;
-import com.realdolmen.domain.AnimalType;
-import com.realdolmen.services.AnimalService;
+//TODO: add 3 packages domain, services, repositories
+//TODO: add the classes Tiger, TigerService, TigerRepository in their corresponding packages
+//TODO: add a name field in the Tiger class + constructor + getter
+//TODO: add a getTigers methode in TigerRepository which returns a list of tigers + implement it with JDBC code
+//TODO: add a getTigers methode in TigerService which returns a list of tigers + TigerService has a TigerRepository
 
-import java.util.Scanner;
-
+//TODO: EXTRA add a createTiger, removeTiger, updateTiger methode in TigerRepository + the whole implementation
 
 public class Main {
-    private static final Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args){
-        System.out.println("Welcome to my humble world of programming");
+    // TODO: Add static scanner field
+    // TODO: Add Static field AnimalService + initialize it
+
+    public static void main(String[] args) {
+        System.out.println("Welcome to my humble world of programming\n");
         while (true) {
             showInitialOptions();
         }
-
     }
 
     private static void showInitialOptions() {
-        AnimalService animalService = new AnimalService(scanner);
         System.out.println("Please select an option :");
-        System.out.println("\t 1. Add animal");
-        System.out.println("\t 2. Show list of animals");
-        System.out.println("\t 3. Make sound ");
-        System.out.println("\t 4. Remove animal");
-        System.out.println("\t 5. add the birth date");
-        int choice = scanner.nextInt();
-        switch (choice) {
+        System.out.println("\t 1. Fetch Tiger list");
+//      TODO: use scanner to get the number of choice and put it in a variable
+        switch (0) {/*TODO: Add the choice variable between ()*/
             case 1:
-                System.out.println("Please select an animal to add: ");
-                for (AnimalType animalType : AnimalType.values()) {
-                    System.out.println("\t" + animalType.getIdentity() + " " + animalType.getDisplayName());
-                }
-                int animalNumber = scanner.nextInt();
-
-                Animal animal = animalService.createAnimal(AnimalType.values()[animalNumber -1]);
-                animalService.addAnAnimal(animal);
-                break;
-            case 2:
-                System.out.println("This is the animal list");
-                animalService.showAnimals();
-                break;
-            case 3:
-                System.out.println("Which animal should make sound");
-                animalService.makeSound();
-                break;
-            case 4:
-                System.out.println("Which animal do you want to remove? ");
-                animalService.removeAnimal();
-                break;
-            case 5:
-                animalService.addBirthDate();
+                System.out.println("----------------------");
+                System.out.println("List of tigers:");
+                //TODO: call the getTigers() methode from the TigerService and print the list out
+                System.out.println("----------------------");
                 break;
 
-            default:
-                System.out.println("Type in a valid input!");
-                showInitialOptions();
-                break;
         }
 
     }
