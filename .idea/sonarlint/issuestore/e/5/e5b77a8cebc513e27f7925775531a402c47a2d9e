@@ -1,0 +1,11 @@
+
+R	java:S106"9Replace this use of System.out or System.err by a logger.(ôÙô|8µ¨ùÒ„/
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ñßÁÚ8µ¨ùÒ„/
+X	java:S106"9Replace this use of System.out or System.err by a logger.(ˆ¾¼–üÿÿÿÿ8¶İøÒ„/
+X	java:S106"9Replace this use of System.out or System.err by a logger.(””Ò¬ùÿÿÿÿ8µ¨ùÒ„/
+X	java:S106"9Replace this use of System.out or System.err by a logger.(±ÿ…ûÿÿÿÿ8µ¨ùÒ„/
+E
+java:S3457"%String contains no format specifiers.(ˆ¾¼–üÿÿÿÿ8¶İøÒ„/
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ŠˆûØ8µ¨ùÒ„/
+S	java:S106"9Replace this use of System.out or System.err by a logger.(æ‹äí8µ¨ùÒ„/
+X	java:S106"9Replace this use of System.out or System.err by a logger.(°Ğûğÿÿÿÿÿ8µ¨ùÒ„/
