@@ -1,4 +1,7 @@
-/.idea/
-/TheZoo.iml
 /out/
 /target/
+
+/.flooignore
+/.floo
+/TheZoo.iml
+/.idea/
