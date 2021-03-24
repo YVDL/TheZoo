@@ -1,15 +1,19 @@
 package com.realdolmen.domain;
 
-public class Tiger extends Animal {
+public class Tiger {
+    private String name;
 
+    public Tiger(String name) {
 
-    public Tiger() {
-        super.setAnimalType("Tiger");
+        this.name = name;
+    }
 
+    public String getName() {
+        return name;
     }
 
     @Override
-    public String makeSound() {
-        return "Raawr";
+    public String toString() {
+        return "Tiger{name='" + name + '\'' + '}';
     }
 }
