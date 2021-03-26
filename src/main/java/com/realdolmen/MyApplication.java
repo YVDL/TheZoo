@@ -56,5 +56,5 @@ public class MyApplication {
         Tiger tiger = new Tiger(name); // creates new tiger with scanned name
         tigerService.addATiger(tiger); // adds new tiger to tigerService
     }
-    
+
 }

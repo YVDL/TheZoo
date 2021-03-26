@@ -2,7 +2,7 @@ package com.realdolmen.domain;
 
 import java.io.Serializable;
 
-public class Tiger implements Serializable {
+public class Tiger  {
 
     private int id;
     private String name; //moet private staan, encapsulation
