@@ -1,13 +1,11 @@
 package com.realdolmen.domain;
 
-import java.io.Serializable;
-
 public class Tiger  {
 
     private int id;
     private String name; //moet private staan, encapsulation
 
-    //TODO: Add a List of Foods field + setters & getter
+    //TODO: Add a List of Foods field + setters & getter relationship is OneToMany
 
     public Tiger(String name, int id) { //constructor
         this.name = name;
