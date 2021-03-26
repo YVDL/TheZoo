@@ -1,13 +1,21 @@
 package com.realdolmen.domain;
 
-public class Tiger {
+import java.io.Serializable;
+
+public class Tiger implements Serializable {
 
     private int id;
     private String name; //moet private staan, encapsulation
 
+    //TODO: Add a List of Foods field + setters & getter
+
     public Tiger(String name, int id) { //constructor
         this.name = name;
         this.id = id;
+    }
+
+    public Tiger(String name) { //overloading, andere parameters dan boven (name, id)
+        this.name = name;
     }
 
     public String getName() { //getter
