@@ -16,6 +16,7 @@ public class FoodService {
     }
 
     //TODO add deleteFoodById(int id)
+    /**this method deletes a food by id*/
     public void deleteFoodById(int id) {
         foodRepository.deleteFoodById(id);
     }
