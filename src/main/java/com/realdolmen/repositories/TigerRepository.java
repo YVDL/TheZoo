@@ -1,5 +1,6 @@
 package com.realdolmen.repositories;
 
+import com.realdolmen.domain.Country;
 import com.realdolmen.domain.Tiger;
 
 import java.sql.*;
@@ -16,13 +17,15 @@ public class TigerRepository {
         String url = "jdbc:mysql://localhost:3306/zoo"; //STEP2
         try (Connection myConnection = DriverManager.getConnection(url, "root", "P@ssw0rd");) { //STEP3 and STEP7 Try-With-Resource makes it possible to autoclose the connection
             Statement myStatement = myConnection.createStatement(); //STEP4 creates a statement Object
-            ResultSet myResultSet = myStatement.executeQuery("select * from Tiger"); //STEP5 executes the SQL query
+            ResultSet myResultSet = myStatement.executeQuery("select t.id, t.name, c.name as countryName ,c.id as countryId from Tiger as t inner join Country as c on c.id = t.countryId"); //STEP5 executes the SQL query
             // first create a list of Tigers to add the tiger objects
             List<Tiger> myTigerList = new ArrayList<>(); //We need to convert the results from the DB 'ResultSet' to a Java ArrayList
             while (myResultSet.next()) { //STEP6 works like Excel with next you move the cursor to the next row in the resultset
                 int id = myResultSet.getInt("id"); // get the value from the 'id' column in the resultset
                 String name = myResultSet.getString("name"); // get the value from the 'name' column in the resultset
-                myTigerList.add(new Tiger(name, id)); //add a new Tiger object to the list
+                Tiger tiger = new Tiger(name, id);
+                tiger.setCountry(new Country(myResultSet.getInt("countryId"), myResultSet.getString("countryName")));
+                myTigerList.add(tiger); //add a new Tiger object to the list
             }
             return myTigerList; // return the TigerList, we might not reach here if there's an exception in the code above
         } catch (SQLException e) {
@@ -33,6 +36,7 @@ public class TigerRepository {
             return null; // the getTigersFromDb() method has a return type List<Tiger> so it's required that this method returns something
         }
     }
+
 
     public void addATigerInDb(Tiger tiger) { //TigerService calls this method. (Tiger tiger) is what this addATigerInDb method receives from the call in TigerService.
         String url = "jdbc:mysql://localhost:3306/zoo?allowMultiQueries=true";

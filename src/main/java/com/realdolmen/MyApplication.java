@@ -17,7 +17,7 @@ public class MyApplication {
     private static Scanner scanner = new Scanner(System.in); //private static outside of main, so it can be used in every method
     private static TigerService tigerService = new TigerService();// this creates an instance of TigerService
     private static FoodService foodService = new FoodService();// this creates an instance of FoodService
-    
+
     public static void main(String[] args) {
         System.out.println("Welcome to my humble world of programming\n");
         while (true) { //keeps running until you manually stop the application.
@@ -74,12 +74,13 @@ public class MyApplication {
         The following code below can be used as an alternative for the normal For each loop (Aka enhanced For loop)
         */
         tigerList.stream().forEach(tiger -> {
-            System.out.print("\t" + tiger + " "); // I use the method print() to print the animal data values without adding a new line (enter) after each animal.
+            System.out.println("\t🐯" + tiger + " "); // I use the method print() to print the animal data values without adding a new line (enter) after each animal.
             /*
             I also want to print out the list of foods for each individual animal.
             println() prints out the list of foods and adds a new line after each print out.
             */
-            System.out.println(tiger.getFoods()); // you could use another 'for loop' to loop over the food list, if you want to customize the print out.
+            System.out.println("\t\t" + tiger.getFoods() + " ");// you could use another 'for loop' to loop over the food list, if you want to customize the print out.
+            System.out.println("\t\t" + tiger.getCountry());
         });
         System.out.println("----------------------"); //out of loop, only adds one line (not after each tiger)
     }

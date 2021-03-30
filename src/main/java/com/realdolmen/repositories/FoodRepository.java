@@ -10,10 +10,11 @@ import java.util.List;
 public class FoodRepository {
     public List<Food> getAllFoodFromDb() {
         String url = "jdbc:mysql://localhost:3306/zoo";
+        List<Food> foodList = new ArrayList<>();
         try (Connection myConnection = DriverManager.getConnection(url, "root", "P@ssw0rd");) {
             Statement myStatement = myConnection.createStatement();
             ResultSet myResultSet = myStatement.executeQuery("select * from Food");
-            List<Food> foodList = new ArrayList<>();
+
             while (myResultSet.next()) {
                 int id = myResultSet.getInt("id");
                 String name = myResultSet.getString("foodName");
@@ -25,7 +26,7 @@ public class FoodRepository {
                 System.out.println(e);
                 e = e.getNextException();
             }
-            return null;
+            return foodList;
         }
     }
 

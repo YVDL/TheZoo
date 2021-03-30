@@ -7,6 +7,7 @@ public class Tiger {
 
     private int id;
     private String name; //moet private staan, encapsulation
+    private Country country; //ManyToOne relationShip
 
     //TODO: Add a List of Foods field + setters & getter.
     //The relationship here is a OneToMany relationship (One animal can eat Many kinds of foods)
@@ -31,6 +32,14 @@ public class Tiger {
 
     public List<Food> getFoods() {
         return foods;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
     }
 
     public void setFoods(List<Food> foods) {
