@@ -2,6 +2,7 @@ package com.realdolmen.services;
 
 import com.realdolmen.domain.Tiger;
 import com.realdolmen.repositories.TigerRepository;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
