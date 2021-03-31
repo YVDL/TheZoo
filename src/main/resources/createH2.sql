@@ -28,9 +28,11 @@ CREATE TABLE if not exists `Food`
 INSERT INTO `zoo`.`Country` (`name`) VALUES ('Madagaskar');
 INSERT INTO `zoo`.`Country` (`name`) VALUES ('West-Myanmar');
 INSERT INTO `zoo`.`Country` (`name`) VALUES ('Rusland');
+INSERT INTO `zoo`.`Country` (`name`) VALUES ('China');
 
 INSERT INTO `zoo`.`Tiger` (`name`, `countryId`) VALUES ('Jef', '1');
-INSERT INTO `zoo`.`Tiger` (`name`, `countryId`) VALUES ('Tim', '1');
+INSERT INTO `zoo`.`Tiger` (`name`, `countryId`) VALUES ('Jef', '1');
+INSERT INTO `zoo`.`Tiger` (`name`, `countryId`) VALUES ('Tim', '4');
 INSERT INTO `zoo`.`Tiger` (`name`, `countryId`) VALUES ('James', '2');
 INSERT INTO `zoo`.`Tiger` (`name`, `countryId`) VALUES ('Rock', '2');
 INSERT INTO `zoo`.`Tiger` (`name`, `countryId`) VALUES ('Vera', '2');

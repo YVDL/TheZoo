@@ -4,6 +4,7 @@ package com.realdolmen;
 
 import com.realdolmen.domain.Food;
 import com.realdolmen.domain.Tiger;
+import com.realdolmen.repositories.util.PropertiesLoader;
 import com.realdolmen.services.FoodService;
 import com.realdolmen.services.TigerService;
 
@@ -20,6 +21,9 @@ public class MyApplication {
 
     public static void main(String[] args) {
         System.out.println("Welcome to my humble world of programming\n");
+        System.out.println(PropertiesLoader.loadPropertiesFile().getProperty("db.url"));
+        System.out.println(PropertiesLoader.loadPropertiesFile().getProperty("db.user"));
+        System.out.println(PropertiesLoader.loadPropertiesFile().getProperty("db.password"));
         while (true) { //keeps running until you manually stop the application.
             /* You don't see 'new MyApplication()' anywhere, so no object is created out of MyApplication.
              * But you still can call static methods or static fields without creating an object out of a class.
