@@ -2,6 +2,7 @@ package com.realdolmen.repositories;
 
 import com.realdolmen.domain.Country;
 import com.realdolmen.domain.Tiger;
+import com.realdolmen.repositories.util.PropertiesLoader;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,12 +11,13 @@ import java.util.List;
 //Repository communicates with the database
 //Anatomy of a Class: AccessModifier class ClassName
 public class TigerRepository {
-
+    private final String url = PropertiesLoader.loadPropertiesFile().getProperty("db.url");
+    private final String user = PropertiesLoader.loadPropertiesFile().getProperty("db.user");
+    private final String password = PropertiesLoader.loadPropertiesFile().getProperty("db.password");
 
     //Anatomy of a method: AccessModifier ReturnType methodName(ParameterType parameterName){MethodBody}
     public List<Tiger> getTigersFromDb() { //
-        String url = "jdbc:mysql://localhost:3306/zoo"; //STEP2
-        try (Connection myConnection = DriverManager.getConnection(url, "root", "P@ssw0rd");) { //STEP3 and STEP7 Try-With-Resource makes it possible to autoclose the connection
+        try (Connection myConnection = DriverManager.getConnection(url, user, password);) { //STEP3 and STEP7 Try-With-Resource makes it possible to autoclose the connection
             Statement myStatement = myConnection.createStatement(); //STEP4 creates a statement Object
             ResultSet myResultSet = myStatement.executeQuery("select t.id, t.name, c.name as countryName ,c.id as countryId from Tiger as t inner join Country as c on c.id = t.countryId"); //STEP5 executes the SQL query
             // first create a list of Tigers to add the tiger objects
@@ -39,13 +41,12 @@ public class TigerRepository {
 
 
     public void addATigerInDb(Tiger tiger) { //TigerService calls this method. (Tiger tiger) is what this addATigerInDb method receives from the call in TigerService.
-        String url = "jdbc:mysql://localhost:3306/zoo?allowMultiQueries=true";
         /*To be able to use myConnection variable in the catch block, we need to put this variable outside the try block.
         Also, local variables (variables inside a method) always need to be initialized even if it's a null value.
         Initialization of Fields or aka class variables is optional, it's not required.*/
         Connection myConnection = null;
         try { //TRY out this block of code, if an exception occurs it can be caught in the CATCH block
-            myConnection = DriverManager.getConnection(url, "root", "P@ssw0rd");
+            myConnection = DriverManager.getConnection(url, user, password);
             //INSERT INTO table_name (column1, column2, column3, ...)
             //VALUES (value1, value2, value3, ...);
             myConnection.setAutoCommit(false); //Since we want to use Transactions, we have to set AutoCommit to false.
